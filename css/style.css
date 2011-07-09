@@ -4,7 +4,7 @@ body {
     font-size: 15px;
 }
 
-#author {
-    weight: normal;
+h2#author {
+    font-weight: normal;
     font-size: 12px;
 }
