@@ -200,7 +200,7 @@ a:hover { color: #036; }
       width: 280px;
  }
  
- nav connect li {
+ li.connect-item {
      display: inline;
  }
  
