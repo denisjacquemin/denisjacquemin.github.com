@@ -169,14 +169,14 @@ a:hover { color: #036; }
  */
 
  html {
-     background: #F1EEE0 url('../images/top-bg.jpg') center top;
+     background: #F1EEE0 url('../images/body-bg.jpg');
      height: 100%;
  }
 
  body {
      color: #425E6A;
      font: 14px "Helvetica Neue",Helvetica Neue,Helvetica,Arial,sans-serif;
-     background: url('../images/body-bg.jpg');
+     background: url('../images/top-bg.jpg') no-repeat center top;
  }
 
  #container {
