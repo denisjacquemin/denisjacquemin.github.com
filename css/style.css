@@ -174,13 +174,8 @@ a:hover { color: #036; }
  }
 
  body {
-     color: #333;
-     font-family: Georgia, Times, serif;
-     font-size: 15px;
-     background: url('../images/bottom-bg.jpg') no-repeat center bottom;
- }
- 
- #layout {
+     color: #425E6A;
+     font: 14px "Helvetica Neue",Helvetica Neue,Helvetica,Arial,sans-serif;
      background: url('../images/top-bg.jpg') no-repeat center top;
  }
 
@@ -190,6 +185,11 @@ a:hover { color: #036; }
      line-height: 20px;
      text-shadow: 0px 1px white;
      padding: 0 15px;
+ }
+ 
+ header {
+     margin: 150px 0 0 10px;
+     height: 200px;
  }
 
  section {
