@@ -168,10 +168,20 @@ a:hover { color: #036; }
  * Author: Denis Jacquemin
  */
 
+ html {
+     background: #F1EEE0 url('../images/body-bg.jpg');
+     height: 100%;
+ }
+
  body {
      color: #333;
      font-family: Georgia, Times, serif;
      font-size: 15px;
+     background: url('../images/bottom-bg.jpg') no-repeat center bottom;
+ }
+ 
+ #layout {
+     background: url('../images/top-bg.jpg') no-repeat center top;
  }
 
  #container {
@@ -189,6 +199,10 @@ a:hover { color: #036; }
  nav {
      float: right;
       width: 280px;
+ }
+ footer {
+     display: block;
+     clear: both;
  }
  
  
