@@ -205,11 +205,11 @@ a:hover { color: #036; }
  }
  
  article header a h1 {
-     font-size: 18px;
+     font-size: 19px;
  }
  
  article p {
-     margin: 5px 0;
+     margin: 10px 0;
  }
  
  .post-meta {
