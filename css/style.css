@@ -204,6 +204,13 @@ a:hover { color: #036; }
      clear: both;
  }
  
+ article header a h1 {
+     font-size: 20px;
+ }
+ 
+ .post-meta {
+     margin: 5px 0;
+ }
  
 /**
  * Non-semantic helper classes: please define your styles before this section.

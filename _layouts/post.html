@@ -4,10 +4,8 @@ layout: default
 <article>
     <header>
         <a href="{{ page.url }}" rel="bookmark" title="{{ page.title }}"><h1>{{ page.title }}</h1></a>
-        <p>Published <time pubdate datetime="{{ page.date | date_to_string }}">{{ page.date | date_to_string }}</time> by {{ page.author }}</p>
+        <p class="post-meta">Published <time pubdate datetime="{{ page.date | date_to_string }}">{{ page.date | date_to_string }}</time> by {{ page.author }}</p>
     </header>
-        {{ content }}
-    <footer>
-        {{ site.url }}
-    </footer>
+    {{ content }}
+    <footer></footer>
 </article>
