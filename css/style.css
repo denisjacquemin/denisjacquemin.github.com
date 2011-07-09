@@ -199,6 +199,11 @@ a:hover { color: #036; }
      float: right;
       width: 280px;
  }
+ 
+ nav connect li {
+     display: inline;
+ }
+ 
  footer {
      display: block;
      clear: both;
