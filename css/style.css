@@ -187,8 +187,7 @@ a:hover { color: #036; }
      padding: 0 15px;
  }
  
- header {
-     margin: 150px 0 0 10px;
+ #container > header {
      height: 200px;
  }
 
