@@ -208,6 +208,10 @@ a:hover { color: #036; }
      font-size: 18px;
  }
  
+ article p {
+     margin: 5px 0;
+ }
+ 
  .post-meta {
      margin: 5px 0 10px 0;
  }
