@@ -1,8 +1,9 @@
 ---
 layout: post
 title: Issue with Spring 2.4.4 and RAD for Exalead's User Interface Application
+author: Denis Jacquemin
 ---
 
 h1. {{ page.title }}
 
-Exalead Cloudview 5 is delivered with an eclipse project for the Search UI application. I faced the following error and figiured out that the error was coming from the Websphere's implementation, the fix was include in the Spring 2.5.5 version.
+Exalead Cloudview 5 is delivered with an eclipse project for the Search UI application. I faced the following error and figiured out that the error was coming from the Websphere's implementation, the fix was include in the Spring 2.5.5 version
