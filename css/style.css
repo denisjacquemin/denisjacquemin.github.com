@@ -200,6 +200,10 @@ a:hover { color: #036; }
       width: 280px;
  }
  
+ .connect {
+     margin: 20px 0;
+ }
+ 
  li.connect-item {
      display: inline;
  }
