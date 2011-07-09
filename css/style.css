@@ -191,10 +191,6 @@ a:hover { color: #036; }
      height: 200px;
  }
 
- #container > header > h1 {
-     margin: 50px 0 0 0;
- } 
-
  section {
      float: left;
      width: 542px;

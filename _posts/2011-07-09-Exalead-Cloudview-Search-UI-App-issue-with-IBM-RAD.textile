@@ -6,9 +6,10 @@ author: Denis Jacquemin
 
 "Exalead Cloudview":http://www.exalead.com/software/products/cloudview/ 5 is delivered with an "Eclipse":http://www.eclipse.org/ project for the Search UI Application Interface. This application is powered by "Spring":http://www.springsource.org/ 2.4.4.
 
-When importng the project into my "RAD":http://www-01.ibm.com/software/awdtools/developer/application/ I got the following error:
+
+When importing the project into my "RAD":http://www-01.ibm.com/software/awdtools/developer/application/, I got the following error:
 
 
 
 
-The error is raised by from the Websphere's implementation, the fix was include in the Spring 2.5.5 version
+The error was raised by from the Websphere's implementation, the fix was include in the Spring 2.5.5 version
