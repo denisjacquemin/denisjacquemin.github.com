@@ -168,7 +168,7 @@ a:hover { color: #036; }
  * Author: Denis Jacquemin
  */
 
- html {
+ #top {
      background: #F1EEE0 url('../images/body-bg.jpg');
      height: 100%;
  }
