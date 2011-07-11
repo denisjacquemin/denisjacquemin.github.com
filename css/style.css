@@ -195,6 +195,10 @@ a:hover { color: #036; }
  #container > header {
      height: 100px;
  }
+ 
+ .home {
+     color: #eee;
+ }
 
  section {
      float: left;
