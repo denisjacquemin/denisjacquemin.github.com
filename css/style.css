@@ -181,6 +181,7 @@ a:hover { color: #036; }
 
  #top {
      background: url('../images/top-bg.jpg') no-repeat center top;
+     height: 150px;
  }
 
  #container {
