@@ -176,6 +176,10 @@ a:hover { color: #036; }
  body {
      color: #425E6A;
      font: 14px "Helvetica Neue",Helvetica Neue,Helvetica,Arial,sans-serif;
+     
+ }
+
+ #top {
      background: url('../images/top-bg.jpg') no-repeat center top;
  }
 
