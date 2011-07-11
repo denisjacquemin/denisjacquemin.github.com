@@ -195,10 +195,6 @@ a:hover { color: #036; }
  #container > header {
      height: 100px;
  }
- 
- .home {
-     color: #eee;
- }
 
  section {
      float: left;
@@ -207,6 +203,10 @@ a:hover { color: #036; }
  nav {
      float: right;
       width: 280px;
+ }
+ 
+ .content li {
+     list-style-type: none;
  }
  
  .connect {
