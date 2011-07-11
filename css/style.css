@@ -234,6 +234,10 @@ a:hover { color: #036; }
      margin: 5px 0 10px 0;
  }
  
+ nav .powered {
+     font-size: 12px;
+ }
+ 
 /**
  * Non-semantic helper classes: please define your styles before this section.
  */
