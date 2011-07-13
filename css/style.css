@@ -289,7 +289,7 @@
      consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
   @media screen and (max-device-width: 480px) {
     nav {
-        diaplay:none;
+        display:none;
     }
   
     /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you: j.mp/textsizeadjust */
