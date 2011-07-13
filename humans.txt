@@ -1,0 +1,9 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  Author: Denis Jacquemin
+  Site: denisjacquemin.github.com
+  Twitter: @denisjacquemin
+  Location: Marche en Famenne, Belgium
