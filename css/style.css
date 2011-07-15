@@ -251,6 +251,10 @@
        width: auto;
    }
    
+   pre {
+       word-wrap: none;
+   }
+   
    q {
        font-style: italic;
    }
