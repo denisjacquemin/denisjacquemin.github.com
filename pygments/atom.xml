@@ -4,7 +4,7 @@
  <title>Denis Jacquemin's Blog'</title>
  <link href="http://denisjacquemin.github.com/atom.xml" rel="self"/>
  <link href="http://denisjacquemin.github.com/"/>
- <updated>2011-07-14T20:24:41+02:00</updated>
+ <updated>2011-07-15T23:48:47+02:00</updated>
  <id>http://denisjacquemin.github.com/</id>
  <author>
    <name>Denis Jacquemin</name>
@@ -20,6 +20,7 @@
    <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.exalead.com/software/products/cloudview/&quot;&gt;Exalead Cloudview&lt;/a&gt; 5 is delivered with an &lt;a href=&quot;http://www.eclipse.org/&quot;&gt;Eclipse&lt;/a&gt; project for the Search UI Application Interface. This application is powered by &lt;a href=&quot;http://www.springsource.org/&quot;&gt;Spring&lt;/a&gt; 2.4.4.&lt;/p&gt;
 &lt;p&gt;When importing the project into my &lt;a href=&quot;http://www-01.ibm.com/software/awdtools/developer/application/&quot;&gt;&lt;span class=&quot;caps&quot;&gt;RAD&lt;/span&gt;&lt;/a&gt;, I got the following error:&lt;/p&gt;
 &lt;p&gt;The error was raised by from the Websphere&amp;#8217;s implementation, the fix was include in the Spring 2.5.5 version&lt;/p&gt;
+&lt;div class=&quot;code&quot;&gt;
 &lt;div&gt;
 &lt;pre&gt;
 &lt;code class='java'&gt;[14/07/11 15:37:36:957 CEST] 00000019 webapp        E com.ibm.ws.webcontainer.webapp.WebApp logError SRVE0293E: [Servlet Error]-[null]: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'messageSource' defined in ServletContext resource [/WEB-INF/spring-context/applicationContext-config.xml]: Initialization of bean failed; nested exception is java.lang.NullPointerException
@@ -76,6 +77,7 @@ at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1563)
         at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:470) &lt;br /&gt;
         &amp;#8230; 35 more&lt;/code&gt;&lt;br /&gt;
   &lt;/pre&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;</content>
  </entry>
  

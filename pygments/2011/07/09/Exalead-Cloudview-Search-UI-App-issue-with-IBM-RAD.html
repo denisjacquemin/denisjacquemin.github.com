@@ -46,6 +46,7 @@
     <p><a href="http://www.exalead.com/software/products/cloudview/">Exalead Cloudview</a> 5 is delivered with an <a href="http://www.eclipse.org/">Eclipse</a> project for the Search UI Application Interface. This application is powered by <a href="http://www.springsource.org/">Spring</a> 2.4.4.</p>
 <p>When importing the project into my <a href="http://www-01.ibm.com/software/awdtools/developer/application/"><span class="caps">RAD</span></a>, I got the following error:</p>
 <p>The error was raised by from the Websphere&#8217;s implementation, the fix was include in the Spring 2.5.5 version</p>
+<div class="code">
 <div>
 <pre>
 <code class='java'>[14/07/11 15:37:36:957 CEST] 00000019 webapp        E com.ibm.ws.webcontainer.webapp.WebApp logError SRVE0293E: [Servlet Error]-[null]: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'messageSource' defined in ServletContext resource [/WEB-INF/spring-context/applicationContext-config.xml]: Initialization of bean failed; nested exception is java.lang.NullPointerException
@@ -103,6 +104,7 @@ at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1563)
         &#8230; 35 more</code><br />
   </pre></p>
 </div>
+</div>
     <footer></footer>
 </article>
         </section>
@@ -123,12 +125,12 @@ at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1563)
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
-<!--
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
-  <script>window.jQuery || document.write("<script src='/js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>
--->  
+  <script>window.jQuery || document.write("<script src='/js/libs/jquery-1.5.1.min.js'>\x3C/script>")</script>  
 
   <!-- scripts concatenated and minified via ant build script-->
+  <script src="/js/script.js"></script>
 <!--
   <script src="/js/plugins.js"></script>
   <script src="/js/script.js"></script>

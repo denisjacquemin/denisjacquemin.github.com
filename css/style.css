@@ -239,6 +239,22 @@
        font-size: 12px;
    }
    
+   .code {
+       border: 1px solid silver;
+       margin: 0 0 1.5em 0;
+       overflow: hidden;
+       width: 590px;
+   }
+   
+   code {
+       white-space: pre;
+       width: auto;
+   }
+   
+   q {
+       font-style: italic;
+   }
+   
   /**
    * Non-semantic helper classes: please define your styles before this section.
    */

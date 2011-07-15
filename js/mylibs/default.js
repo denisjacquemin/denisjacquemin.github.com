@@ -1,7 +1,7 @@
 jQuery(document).ready(function(){
 	jQuery(".code").hover(function() {
-	var width = jQuery("code", this).width();
-	var pad = width + 30;
+	var width = jQuery("div", this).width();
+	var pad = width + 5;
 	if (width > 590) {
 		jQuery(this)
 			.stop(true, false)
@@ -19,25 +19,3 @@ jQuery(document).ready(function(){
 		});
 	});
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

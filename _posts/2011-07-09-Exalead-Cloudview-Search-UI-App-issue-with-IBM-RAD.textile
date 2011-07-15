@@ -4,17 +4,34 @@ title: Exalead Cloudview Search UI Application Issue with IBM RAD
 author: Denis Jacquemin
 ---
 
-"Exalead Cloudview":http://www.exalead.com/software/products/cloudview/ 5 is delivered with an "Eclipse":http://www.eclipse.org/ project for the Search UI Application Interface. This application is powered by "Spring":http://www.springsource.org/ 2.4.4.
+"Exalead Cloudview":http://www.exalead.com/software/products/cloudview/ 5 is delivered with an "Eclipse":http://www.eclipse.org/ project for the Search UI Application Interface, this application is build on "Spring":http://www.springsource.org/ 2.4.4.
+
+<h2>The Problem</h2>
+<p>When importing the project into my "RAD":http://www-01.ibm.com/software/awdtools/developer/application/, I got the following error ( see the full stack trace at the end of the post ):
+</p>    
+<div class="code">
+{% highlight java %}
+NullPointerException at org.springframework.core.GenericTypeResolver.getTypeVariableMap
+{% endhighlight %}
+</div>
 
 
-When importing the project into my "RAD":http://www-01.ibm.com/software/awdtools/developer/application/, I got the following error:
+<h2>The Cause</h2>
+<p>
+As explain by Juergen Hoeller at <a href="https://jira.springsource.org/browse/SPR-4788">NPE in GenericTypeResolver when...</a>
+<q>
+This seems to be caused by a slightly different implementation of the "java.beans.PropertyDescriptor" class in IBM's JDK class libraries... breaking an assumption in Spring's GenericTypeAwarePropertyDescriptor subclass...
+</q>
+</p>
 
+<h2>The Solution</h2>
 
+<p>Upgrade to Spring 2.5.5.</p>
 
+<h2>Full Stack Trace</h2>
 
-The error was raised by from the Websphere's implementation, the fix was include in the Spring 2.5.5 version
-
-{% highlight java linenos %}
+<div class="code">
+{% highlight java %}
 [14/07/11 15:37:36:957 CEST] 00000019 webapp        E com.ibm.ws.webcontainer.webapp.WebApp logError SRVE0293E: [Servlet Error]-[null]: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'messageSource' defined in ServletContext resource [/WEB-INF/spring-context/applicationContext-config.xml]: Initialization of bean failed; nested exception is java.lang.NullPointerException 
         at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:478) 
         at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory$1.run(AbstractAutowireCapableBeanFactory.java:409) 
@@ -52,6 +69,8 @@ The error was raised by from the Websphere's implementation, the fix was include
         at com.ibm.ws.runtime.component.CompositionUnitMgrImpl$CUInitializer.run(CompositionUnitMgrImpl.java:949) 
         at com.ibm.wsspi.runtime.component.WsComponentImpl$_AsynchInitializer.run(WsComponentImpl.java:349) 
         at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1563) 
+{% endhighlight %}
+{% highlight java %}
 Caused by: java.lang.NullPointerException 
         at org.springframework.core.GenericTypeResolver.getTypeVariableMap(GenericTypeResolver.java:144) 
         at org.springframework.core.GenericTypeResolver.resolveReturnType(GenericTypeResolver.java:93) 
@@ -69,3 +88,4 @@ Caused by: java.lang.NullPointerException
         at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:470) 
         ... 35 more
 {% endhighlight %}
+</div>
