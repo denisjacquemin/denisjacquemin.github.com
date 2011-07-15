@@ -252,7 +252,7 @@
    }
    
    pre {
-       word-wrap: none;
+       word-wrap: normal;
    }
    
    q {
