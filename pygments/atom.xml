@@ -4,7 +4,7 @@
  <title>Denis Jacquemin's Blog'</title>
  <link href="http://denisjacquemin.github.com/atom.xml" rel="self"/>
  <link href="http://denisjacquemin.github.com/"/>
- <updated>2011-07-15T23:48:47+02:00</updated>
+ <updated>2011-07-16T00:29:09+02:00</updated>
  <id>http://denisjacquemin.github.com/</id>
  <author>
    <name>Denis Jacquemin</name>
@@ -13,13 +13,38 @@
 
  
  <entry>
+   <title>How to Configure Exalead Cloundview 5.1 to Index an Oracle Database</title>
+   <link href="http://denisjacquemin.github.com/2011/07/16/How-to-Configure-Exalead-Cloudview-to-Index-Oracle-Database.html"/>
+   <updated>2011-07-16T00:00:00+02:00</updated>
+   <id>http://denisjacquemin.github.com/2011/07/16/How-to-Configure-Exalead-Cloudview-to-Index-Oracle-Database</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.exalead.com/software/products/cloudview/&quot;&gt;Exalead Cloudview&lt;/a&gt; 5.1 as a &lt;span class=&quot;caps&quot;&gt;JDBC&lt;/span&gt; connector to index Oracle Databases.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Exalead Cloudview Search UI Application Issue with IBM RAD</title>
    <link href="http://denisjacquemin.github.com/2011/07/09/Exalead-Cloudview-Search-UI-App-issue-with-IBM-RAD.html"/>
    <updated>2011-07-09T00:00:00+02:00</updated>
    <id>http://denisjacquemin.github.com/2011/07/09/Exalead-Cloudview-Search-UI-App-issue-with-IBM-RAD</id>
-   <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.exalead.com/software/products/cloudview/&quot;&gt;Exalead Cloudview&lt;/a&gt; 5 is delivered with an &lt;a href=&quot;http://www.eclipse.org/&quot;&gt;Eclipse&lt;/a&gt; project for the Search UI Application Interface. This application is powered by &lt;a href=&quot;http://www.springsource.org/&quot;&gt;Spring&lt;/a&gt; 2.4.4.&lt;/p&gt;
-&lt;p&gt;When importing the project into my &lt;a href=&quot;http://www-01.ibm.com/software/awdtools/developer/application/&quot;&gt;&lt;span class=&quot;caps&quot;&gt;RAD&lt;/span&gt;&lt;/a&gt;, I got the following error:&lt;/p&gt;
-&lt;p&gt;The error was raised by from the Websphere&amp;#8217;s implementation, the fix was include in the Spring 2.5.5 version&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://www.exalead.com/software/products/cloudview/&quot;&gt;Exalead Cloudview&lt;/a&gt; 5.1 is delivered with an &lt;a href=&quot;http://www.eclipse.org/&quot;&gt;Eclipse&lt;/a&gt; project for the Search UI Application Interface, this application is build on &lt;a href=&quot;http://www.springsource.org/&quot;&gt;Spring&lt;/a&gt; 2.4.4.&lt;/p&gt;
+&lt;h2&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;When importing the project into my &lt;a href=&quot;http://www-01.ibm.com/software/awdtools/developer/application/&quot;&gt;&lt;span class=&quot;caps&quot;&gt;RAD&lt;/span&gt;&lt;/a&gt;, I got the following error ( see the full stack trace at the end of the post ):&lt;/p&gt;    
+&lt;div class=&quot;code&quot;&gt;
+&lt;div&gt;
+&lt;pre&gt;
+&lt;code class='java'&gt;NullPointerException at org.springframework.core.GenericTypeResolver.getTypeVariableMap&lt;/code&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2&gt;The Cause&lt;/h2&gt;
+&lt;p&gt;
+&lt;p&gt;As explain by Juergen Hoeller at &lt;a href=&quot;https://jira.springsource.org/browse/SPR-4788&quot;&gt;&lt;span class=&quot;caps&quot;&gt;NPE&lt;/span&gt; in GenericTypeResolver when&amp;#8230;&lt;/a&gt;&lt;br /&gt;
+&lt;q&gt;&lt;br /&gt;
+This seems to be caused by a slightly different implementation of the &amp;#8220;java.beans.PropertyDescriptor&amp;#8221; class in IBM&amp;#8217;s &lt;span class=&quot;caps&quot;&gt;JDK&lt;/span&gt; class libraries&amp;#8230; breaking an assumption in Spring&amp;#8217;s GenericTypeAwarePropertyDescriptor subclass&amp;#8230;&lt;br /&gt;
+&lt;/q&gt;&lt;/p&gt;
+&lt;/p&gt;
+&lt;h2&gt;The Solution&lt;/h2&gt;
+&lt;p&gt;Upgrade to Spring 2.5.5.&lt;/p&gt;
+&lt;h2&gt;Full Stack Trace&lt;/h2&gt;
 &lt;div class=&quot;code&quot;&gt;
 &lt;div&gt;
 &lt;pre&gt;
@@ -59,24 +84,28 @@ at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.start(CompositionUnitMgrI
 at com.ibm.ws.runtime.component.CompositionUnitMgrImpl.access$300(CompositionUnitMgrImpl.java:110)
 at com.ibm.ws.runtime.component.CompositionUnitMgrImpl$CUInitializer.run(CompositionUnitMgrImpl.java:949)
 at com.ibm.wsspi.runtime.component.WsComponentImpl$_AsynchInitializer.run(WsComponentImpl.java:349)
-at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1563)
-&lt;p&gt;Caused by: java.lang.NullPointerException &lt;br /&gt;
-        at org.springframework.core.GenericTypeResolver.getTypeVariableMap(GenericTypeResolver.java:144) &lt;br /&gt;
-        at org.springframework.core.GenericTypeResolver.resolveReturnType(GenericTypeResolver.java:93) &lt;br /&gt;
-        at org.springframework.beans.GenericTypeAwarePropertyDescriptor.getPropertyType(GenericTypeAwarePropertyDescriptor.java:58) &lt;br /&gt;
-        at java.beans.PropertyDescriptor.setWriteMethod(PropertyDescriptor.java:111) &lt;br /&gt;
-        at java.beans.PropertyDescriptor.&amp;lt;init&amp;gt;(PropertyDescriptor.java:77) &lt;br /&gt;
-        at org.springframework.beans.GenericTypeAwarePropertyDescriptor.&amp;lt;init&amp;gt;(GenericTypeAwarePropertyDescriptor.java:47) &lt;br /&gt;
-        at org.springframework.beans.CachedIntrospectionResults.&amp;lt;init&amp;gt;(CachedIntrospectionResults.java:250) &lt;br /&gt;
-        at org.springframework.beans.CachedIntrospectionResults.forClass(CachedIntrospectionResults.java:144) &lt;br /&gt;
-        at org.springframework.beans.BeanWrapperImpl.getCachedIntrospectionResults(BeanWrapperImpl.java:252) &lt;br /&gt;
-        at org.springframework.beans.BeanWrapperImpl.convertForProperty(BeanWrapperImpl.java:380) &lt;br /&gt;
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.convertForProperty(AbstractAutowireCapableBeanFactory.java:1287) &lt;br /&gt;
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1248) &lt;br /&gt;
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1008) &lt;br /&gt;
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:470) &lt;br /&gt;
-        &amp;#8230; 35 more&lt;/code&gt;&lt;br /&gt;
-  &lt;/pre&gt;&lt;/p&gt;
+at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1563)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div&gt;
+&lt;pre&gt;
+&lt;code class='java'&gt;Caused by: java.lang.NullPointerException
+at org.springframework.core.GenericTypeResolver.getTypeVariableMap(GenericTypeResolver.java:144)
+at org.springframework.core.GenericTypeResolver.resolveReturnType(GenericTypeResolver.java:93)
+at org.springframework.beans.GenericTypeAwarePropertyDescriptor.getPropertyType(GenericTypeAwarePropertyDescriptor.java:58)
+at java.beans.PropertyDescriptor.setWriteMethod(PropertyDescriptor.java:111)
+at java.beans.PropertyDescriptor.&amp;lt;init&amp;gt;(PropertyDescriptor.java:77)
+at org.springframework.beans.GenericTypeAwarePropertyDescriptor.&amp;lt;init&amp;gt;(GenericTypeAwarePropertyDescriptor.java:47)
+at org.springframework.beans.CachedIntrospectionResults.&amp;lt;init&amp;gt;(CachedIntrospectionResults.java:250)
+at org.springframework.beans.CachedIntrospectionResults.forClass(CachedIntrospectionResults.java:144)
+at org.springframework.beans.BeanWrapperImpl.getCachedIntrospectionResults(BeanWrapperImpl.java:252)
+at org.springframework.beans.BeanWrapperImpl.convertForProperty(BeanWrapperImpl.java:380)
+at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.convertForProperty(AbstractAutowireCapableBeanFactory.java:1287)
+at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1248)
+at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1008)
+at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:470)
+&amp;#8230; 35 more&lt;/code&gt;
+&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;</content>
  </entry>

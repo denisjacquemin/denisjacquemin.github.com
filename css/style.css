@@ -196,14 +196,18 @@
    #container > header {
        height: 100px;
    }
+   
+   #container > header > .left, #container > header > .right {
+       float:left;
+       width:50%;
+   }
+   #container > header > .right { 
+       text-align: right;
+   }
   
    section {
        float: left;
-       width: 600px;
-   }
-   nav {
-       float: right;
-        width: 280px;
+       width: 900px;
    }
    
    .content li {
@@ -243,7 +247,7 @@
        border: 1px solid silver;
        margin: 0 0 1.5em 0;
        overflow: hidden;
-       width: 590px;
+       width: 900px;
    }
    
    code {

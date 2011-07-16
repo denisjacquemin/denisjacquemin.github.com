@@ -248,6 +248,15 @@
    
    code {
        white-space: pre;
+       width: auto;
+   }
+   
+   pre {
+       word-wrap: normal;
+   }
+   
+   q {
+       font-style: italic;
    }
    
   /**

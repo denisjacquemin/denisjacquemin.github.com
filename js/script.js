@@ -2,7 +2,7 @@ jQuery(document).ready(function(){
 	jQuery(".code").hover(function() {
 	var width = jQuery("code", this).width();
 	var pad = width + 30;
-	if (width > 590) {
+	if (width > 900) {
 		jQuery(this)
 			.stop(true, false)
 			.css({
@@ -15,7 +15,7 @@ jQuery(document).ready(function(){
 		}
 	}, function() {
 			jQuery(this).stop(true, false).animate({
-				width: 590
+				width: 900
 		});
 	});
 });

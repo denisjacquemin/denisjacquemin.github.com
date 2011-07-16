@@ -1,7 +1,7 @@
 jQuery(document).ready(function(){
 	jQuery(".code").hover(function() {
 	var width = jQuery("code", this).width();
-	var pad = width + 5;
+	var pad = width + 30;
 	if (width > 590) {
 		jQuery(this)
 			.stop(true, false)
