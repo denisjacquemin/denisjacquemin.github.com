@@ -77,6 +77,11 @@
         padding: 5px;
     }
     
+    footer {
+        text-align:right;
+        font-size: 12px;
+    }
+    
     
 /* #Page Styles
 ================================================== */
