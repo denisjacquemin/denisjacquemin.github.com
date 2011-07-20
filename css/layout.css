@@ -67,9 +67,16 @@
         margin: 0;
     }
 
-    article div {
+    article div.highlight {
         margin: 20px 0;
+        border: 1px solid #999;
+        background: #eee;
+        padding: 5px;
+        overflow-x: auto;
+        padding: 5px;
     }
+    
+    
 /* #Page Styles
 ================================================== */
 
@@ -80,7 +87,20 @@
 	@media only screen and (min-width: 768px) and (max-width: 991px) {}
 	
 	/* Mobile/Browser */
-	@media only screen and (max-width: 767px) {}
+	@media only screen and (max-width: 767px) {
+	    #blog-title {
+    	      font-size:26px;
+          }
+
+          h2 {
+              font-size:22px;
+              line-height: 24px;
+          }
+
+          h3 {
+              font-size:20px;
+          }
+	}
 	
 	/* Mobile Landscape/Browser */
 	@media only screen and (min-width: 480px) and (max-width: 767px) {}
