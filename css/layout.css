@@ -30,12 +30,13 @@
         padding: 40px 0 0 0;
     }
     
-    .container > header h1 a {
+    .container > header h1 a, section h2 a {
         text-decoration: none;
     }
     
     #home {
         font-size:18px;
+        white-space: nowrap;
     }
     
     #connect {
@@ -88,8 +89,17 @@
 	
 	/* Mobile/Browser */
 	@media only screen and (max-width: 767px) {
-	    #blog-title {
+	     .container > header {
+             padding: 0;
+         }
+         
+         #connect {
+             line-height: 28px;
+         }
+	     
+	      h1 {
     	      font-size:26px;
+    	      line-height: 28px;
           }
 
           h2 {
