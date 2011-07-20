@@ -5,8 +5,10 @@ layout: default
     <header>
         <a href="{{ page.url }}" rel="bookmark" title="{{ page.title }}"><h2>{{ page.title }}</h2></a>
         <p class="post-meta">Published <time pubdate datetime="{{ page.date | date_to_string }}">{{ page.date | date_to_string }}</time> by {{ page.author }}</p>
+        <hr>
     </header>
     {{ content }}
+    <hr>
     <div id="disqus_thread"></div>
     <script type="text/javascript">
        
