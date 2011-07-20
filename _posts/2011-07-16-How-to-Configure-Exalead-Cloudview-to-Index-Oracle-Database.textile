@@ -2,6 +2,7 @@
 layout: post
 title: How to Configure and Index an Oracle Database with Exalead Cloudview 5.1
 author: Denis Jacquemin
+published: false
 ---
 
 "Exalead Cloudview":http://www.exalead.com/software/products/cloudview/ 5.1 allow to index an Oracle Database, it's not configured out of the box, here are the steps to configure and index an Oracle Database with Cloudview.
