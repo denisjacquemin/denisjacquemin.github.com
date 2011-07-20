@@ -16,7 +16,7 @@ NullPointerException at org.springframework.core.GenericTypeResolver.getTypeVari
 
 h3. The Cause
 
-As explain by Juergen Hoeller at "NPE in GenericTypeResolver when...":https://jira.springsource.org/browse/SPR-4788
+As explained by Juergen Hoeller at "NPE in GenericTypeResolver when...":https://jira.springsource.org/browse/SPR-4788
 
 bq. This seems to be caused by a slightly different implementation of the "java.beans.PropertyDescriptor" class in IBM's JDK class libraries... breaking an assumption in Spring's GenericTypeAwarePropertyDescriptor subclass...
 
