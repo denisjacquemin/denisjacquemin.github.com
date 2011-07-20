@@ -22,7 +22,7 @@ bq. This seems to be caused by a slightly different implementation of the "java.
 
 h3. The Solution
 
-Upgrade to Spring 2.5.5.
+Upgrade to Spring 2.4.5.
 
 h3. Full Stack Trace
 
