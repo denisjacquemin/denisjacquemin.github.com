@@ -8,7 +8,7 @@ author: Denis Jacquemin
 
 h3. The Problem
 
-When importing the project into my "RAD":http://www-01.ibm.com/software/awdtools/developer/application/, I got the following error ( see the full stack trace at the end of the post ):
+When importing the project into my "RAD":http://www-01.ibm.com/software/awdtools/developer/application/, I got the following error (see the full stack trace at the end of the post):
 
 {% highlight java %}
 NullPointerException at org.springframework.core.GenericTypeResolver.getTypeVariableMap
@@ -16,13 +16,13 @@ NullPointerException at org.springframework.core.GenericTypeResolver.getTypeVari
 
 h3. The Cause
 
-Spring 2.4.4 as problem running with RAD, as explained by Juergen Hoeller at "NPE in GenericTypeResolver when...":https://jira.springsource.org/browse/SPR-4788 
+Spring 2.4.4 has problem running with RAD, as explained by Juergen Hoeller at "NPE in GenericTypeResolver when...":https://jira.springsource.org/browse/SPR-4788 
 
 bq. This seems to be caused by a slightly different implementation of the "java.beans.PropertyDescriptor" class in IBM's JDK class libraries... breaking an assumption in Spring's GenericTypeAwarePropertyDescriptor subclass... ??Juergen Hoeller, "Co-founder of the Spring Framework":http://www.springsource.com/people/jhoeller?? 
 
 h3. The Solution
 
-Upgrade to Spring 2.4.5.
+Upgrading to Spring 2.4.5 solve this issue.
 
 h3. Full Stack Trace
 
