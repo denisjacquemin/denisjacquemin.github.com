@@ -1,0 +1,134 @@
+---
+layout: post
+title: Exalead Cloudview Search UI App Xpath parsing Issue on Result Page
+author: Denis Jacquemin
+---
+
+"Exalead Cloudview":http://www.exalead.com/software/products/cloudview/ 5.1 is delivered with an "Eclipse":http://www.eclipse.org/ project for the Search UI Application Interface, this application is build on "Spring":http://www.springsource.org/ 2.4.4.
+
+h3. The Problem
+
+When requesting the page http://host:port/search-ui-framework/search/C.view=CloudView-50/results?q=test I got the following error (see the full stack trace at the end of the post):
+
+
+{% highlight java %}
+Error evaluating XPath expression "string($answer/Answer/@context)": javax.xml.transform.TransformerException: Unknown error in XPath. 
+{% endhighlight %}
+
+h3. The Cause
+
+The following line of code in WEB-INF\views\jsp\search\results.jsp is raising the error
+
+{% highlight java %}
+<x:set var="searchContext" select="string($answer/Answer/@context)"/>
+{% endhighlight %}
+
+bq. This seems to be caused by a slightly different implementation of the "java.beans.PropertyDescriptor" class in IBM's JDK class libraries... breaking an assumption in Spring's GenericTypeAwarePropertyDescriptor subclass... ??Juergen Hoeller, "Co-founder of the Spring Framework":http://www.springsource.com/people/jhoeller?? 
+
+h3. The Solution
+
+Removing the string() solve this issue.
+
+{% highlight java %}
+<x:set var="searchContext" select="$answer/Answer/@context"/>
+{% endhighlight %}
+
+h3. Full Stack Trace
+
+{% highlight java %}
+[26/07/11 11:33:56:734 CEST] 00000014 servlet       E com.ibm.ws.webcontainer.servlet.ServletWrapper service SRVE0068E: Uncaught exception created in one of the service methods of the servlet /WEB-INF/views/jsp/search/results.jsp in application search-ui-EAR. Exception created : com.ibm.websphere.servlet.error.ServletErrorReport: Error evaluating XPath expression &quot;string&#40;$answer/Answer/@context&#41;&quot;: javax.xml.transform.TransformerException: Unknown error in XPath. 
+        at org.apache.jasper.runtime.PageContextImpl.handlePageException(PageContextImpl.java:693) 
+        at com.ibm._jsp._results._jspService(_results.java:240) 
+        at com.ibm.ws.jsp.runtime.HttpJspBase.service(HttpJspBase.java:99) 
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:831) 
+        at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1657) 
+        at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1597) 
+        at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:104) 
+        at com.ibm.ws.webcontainer.filter.WebAppFilterChain._doFilter(WebAppFilterChain.java:77) 
+        at com.ibm.ws.webcontainer.filter.WebAppFilterManager.doFilter(WebAppFilterManager.java:908) 
+        at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:934) 
+        at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:502) 
+        at com.ibm.ws.webcontainer.servlet.ServletWrapperImpl.handleRequest(ServletWrapperImpl.java:179) 
+        at com.ibm.wsspi.webcontainer.servlet.GenericServletWrapper.handleRequest(GenericServletWrapper.java:121) 
+        at com.ibm.ws.jsp.webcontainerext.AbstractJSPExtensionServletWrapper.handleRequest(AbstractJSPExtensionServletWrapper.java:241) 
+        at com.ibm.ws.jsp.webcontainerext.AbstractJSPExtensionProcessor.handleRequest(AbstractJSPExtensionProcessor.java:353) 
+        at com.ibm.ws.webcontainer.webapp.WebAppRequestDispatcher.forward(WebAppRequestDispatcher.java:341) 
+        at org.apache.tiles.servlet.context.ServletTilesRequestContext.forward(ServletTilesRequestContext.java:198) 
+        at org.apache.tiles.servlet.context.ServletTilesRequestContext.dispatch(ServletTilesRequestContext.java:185) 
+        at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:419) 
+        at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:370) 
+        at org.springframework.web.servlet.view.tiles2.TilesView.renderMergedOutputModel(TilesView.java:75) 
+        at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:258) 
+        at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1174) 
+        at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:901) 
+        at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:809) 
+        at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571) 
+        at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:501) 
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:718) 
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:831) 
+        at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1657) 
+        at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1597) 
+        at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:131) 
+        at com.exalead.mercury.search.ui.security.NoAuthenticationFilter.doFilter(NoAuthenticationFilter.java:21) 
+        at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:236) 
+        at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:167) 
+        at com.ibm.ws.webcontainer.filter.FilterInstanceWrapper.doFilter(FilterInstanceWrapper.java:188) 
+        at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:116) 
+        at com.ibm.ws.webcontainer.filter.WebAppFilterChain._doFilter(WebAppFilterChain.java:77) 
+        at com.ibm.ws.webcontainer.filter.WebAppFilterManager.doFilter(WebAppFilterManager.java:908) 
+        at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:934) 
+        at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:502) 
+        at com.ibm.ws.webcontainer.servlet.ServletWrapperImpl.handleRequest(ServletWrapperImpl.java:179) 
+        at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:3826) 
+        at com.ibm.ws.webcontainer.webapp.WebGroup.handleRequest(WebGroup.java:276) 
+        at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:931) 
+        at com.ibm.ws.webcontainer.WSWebContainer.handleRequest(WSWebContainer.java:1583) 
+        at com.ibm.ws.webcontainer.channel.WCChannelLink.ready(WCChannelLink.java:186) 
+        at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:445) 
+        at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleNewRequest(HttpInboundLink.java:504) 
+        at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.processRequest(HttpInboundLink.java:301) 
+        at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.ready(HttpInboundLink.java:275) 
+        at com.ibm.ws.tcp.channel.impl.NewConnectionInitialReadCallback.sendToDiscriminators(NewConnectionInitialReadCallback.java:214) 
+        at com.ibm.ws.tcp.channel.impl.NewConnectionInitialReadCallback.complete(NewConnectionInitialReadCallback.java:113) 
+        at com.ibm.ws.tcp.channel.impl.AioReadCompletionListener.futureCompleted(AioReadCompletionListener.java:165) 
+        at com.ibm.io.async.AbstractAsyncFuture.invokeCallback(AbstractAsyncFuture.java:217) 
+        at com.ibm.io.async.AsyncChannelFuture.fireCompletionActions(AsyncChannelFuture.java:161) 
+        at com.ibm.io.async.AsyncFuture.completed(AsyncFuture.java:138) 
+        at com.ibm.io.async.ResultHandler.complete(ResultHandler.java:204) 
+        at com.ibm.io.async.ResultHandler.runEventProcessingLoop(ResultHandler.java:775) 
+        at com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905) 
+        at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1563)
+{% endhighlight %}
+{% highlight java %}
+Caused by: javax.xml.transform.TransformerException: Unknown error in XPath. 
+        at org.apache.xpath.XPath.execute(Unknown Source) 
+        at org.apache.taglibs.standard.tag.common.xml.JSTLXPathAPI.eval(JSTLXPathAPI.java:290) 
+        at org.apache.taglibs.standard.tag.common.xml.XPathUtil.selectNodes(XPathUtil.java:541) 
+        at org.apache.taglibs.standard.tag.common.xml.SetTag.doStartTag(SetTag.java:69) 
+        at com.ibm._jsp._results._jspx_meth_x_set_3(_results.java:549) 
+        at com.ibm._jsp._results._jspx_meth_c_when_1(_results.java:832) 
+        at com.ibm._jsp._results._jspx_meth_c_choose_1(_results.java:934) 
+        at com.ibm._jsp._results._jspService(_results.java:145) 
+        ... 59 more
+{% endhighlight %}
+{% highlight java %}
+Caused by: java.lang.NullPointerException 
+        at org.apache.xml.dtm.ref.dom2dtm.DOM2DTM.getNodeNameX(Unknown Source) 
+        at org.apache.xml.dtm.ref.DTMDefaultBase.declareNamespaceInContext(Unknown Source) 
+        at org.apache.xml.dtm.ref.dom2dtm.DOM2DTM.addNode(Unknown Source) 
+        at org.apache.xml.dtm.ref.dom2dtm.DOM2DTM.processNamespacesAndAttributes(Unknown Source) 
+        at org.apache.xml.dtm.ref.dom2dtm.DOM2DTM.nextNode(Unknown Source) 
+        at org.apache.xml.dtm.ref.DTMDefaultBase._firstch(Unknown Source) 
+        at org.apache.xml.dtm.ref.DTMDefaultBase.getFirstChild(Unknown Source) 
+        at org.apache.xml.dtm.ref.DTMDefaultBaseTraversers$ChildTraverser.first(Unknown Source) 
+        at org.apache.xpath.axes.AxesWalker.getNextNode(Unknown Source) 
+        at org.apache.xpath.axes.AxesWalker.nextNode(Unknown Source) 
+        at org.apache.xpath.axes.WalkingIterator.nextNode(Unknown Source) 
+        at org.apache.xpath.axes.NodeSequence.nextNode(Unknown Source) 
+        at org.apache.xpath.axes.NodeSequence.runTo(Unknown Source) 
+        at org.apache.xpath.axes.NodeSequence.setRoot(Unknown Source)
+        at org.apache.xpath.axes.LocPathIterator.execute(Unknown Source) 
+        at org.apache.xpath.functions.FunctionDef1Arg.getArg0AsString(Unknown Source) 
+        at org.apache.xpath.functions.FuncString.execute(Unknown Source) 
+        ... 67 more
+{% endhighlight %}
