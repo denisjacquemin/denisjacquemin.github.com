@@ -2,7 +2,7 @@
 layout: post
 title: Exalead Cloudview Search UI App Xpath Parsing Issue on Result Page
 author: Denis Jacquemin
-published: true
+published: false
 ---
 
 "Exalead Cloudview":http://www.exalead.com/software/products/cloudview/ 5.1 is delivered with an "Eclipse":http://www.eclipse.org/ project for the Search UI Application Interface, this application is build on "Spring":http://www.springsource.org/ 2.4.4.
