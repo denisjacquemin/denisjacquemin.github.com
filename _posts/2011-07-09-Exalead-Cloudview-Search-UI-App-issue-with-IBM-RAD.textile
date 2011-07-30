@@ -2,13 +2,14 @@
 layout: post
 title: Exalead Cloudview Search UI App Issue with IBM RAD
 author: Denis Jacquemin
-published: false
+published: true
 ---
 
 "Exalead Cloudview":http://www.exalead.com/software/products/cloudview/ 5.1 is delivered with an "Eclipse":http://www.eclipse.org/ project for the Search UI Application Interface, this application is build on "Spring":http://www.springsource.org/ 2.4.4.
 
 h3. The Problem
 
+For sure the application works perfectly on tomcat, but on websphere that's another story. 
 When importing the project into my "RAD":http://www-01.ibm.com/software/awdtools/developer/application/, I got the following error (see the full stack trace at the end of the post):
 
 {% highlight java %}
@@ -24,6 +25,11 @@ bq. This seems to be caused by a slightly different implementation of the "java.
 h3. The Solution
 
 Upgrading to Spring 2.4.5 solve this issue.
+
+h3. My configuration
+
+* IBM Rational&reg; Application Developer&trade; for WebSphere&reg; Software, Version: 7.5.4 
+* WebSphere Application Server 7.0.0.13 
 
 h3. Full Stack Trace
 
