@@ -12,6 +12,26 @@ h3. What it looks like
 It's obviously inpired by applications like "Basecamp":http://basecamphq.com/ or "Lighthouse":http://lighthouseapp.com/, the code is as clean as possible and minimalist.
 !/images/custom_layout_small.png!
 
+h3. Installation
+
+Rails 3
+Add the gem to your Gemfile.
+{% highlight ruby %}
+gem "custom_layout", :group => :development
+{% endhighlight %}
+
+Then you can run the generator.
+{% highlight ruby %}
+rails g custom_layout
+{% endhighlight %}
+
+h3. Features
+
+* Google Analytics code, don't forget to use your site's ID.
+* Includes "html5shim":http://code.google.com/p/html5shim/ for enabling HTML5 tags in IExplorer prior to version 9.
+* Liquid layout with minimum width of 960px.
+* JavaScript placed at the end of the page, for loading time optimization.
+
 The page skeleton uses latest HTML5 goodies
 {% highlight html %}
 <body>
@@ -27,22 +47,5 @@ The page skeleton uses latest HTML5 goodies
 </body>
 {% endhighlight %}
 
-h3. Installation
 
-Rails 3
-Add the gem to your Gemfile.
-{% highlight ruby %}
-gem "custom_layout", :group => :development
-{% endhighlight %}
 
-Then you can run the generator.
-{% highlight ruby %}
-rails g custom_layout
-{% endhighlight %}
-
-h3. Other Features
-
-* Google Analytics code, don't forget to use your site's ID.
-* Includes "html5shim":http://code.google.com/p/html5shim/ for enabling HTML5 tags in IExplorer prior to version 9.
-* Liquid layout with minimum width of 960px.
-* JavaScript placed at the end of the page, for loading time optimization.
