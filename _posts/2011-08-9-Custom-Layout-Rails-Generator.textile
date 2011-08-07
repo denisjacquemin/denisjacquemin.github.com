@@ -2,7 +2,7 @@
 layout: post
 title: Custom Layout Rails Generator 
 author: Denis Jacquemin
-published: false
+published: true
 ---
 Rails generators helps accelerate your development time, by quickly generating redondant code between web app. The layout is a good example of stuff you do for every project, starting from scratch each time is boring and not productive.
 That's why I put my layout (application.rb, css, images) in a generator.
@@ -16,11 +16,13 @@ h3. Installation
 
 Rails 3
 Add the gem to your Gemfile.
+
 {% highlight ruby %}
 gem "custom_layout", :group => :development
 {% endhighlight %}
 
 Then you can run the generator.
+
 {% highlight ruby %}
 rails g custom_layout
 {% endhighlight %}
@@ -33,6 +35,7 @@ h3. Features
 * JavaScript placed at the end of the page, for loading time optimization.
 
 The page skeleton uses latest HTML5 goodies
+
 {% highlight html %}
 <body>
     <header>
