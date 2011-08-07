@@ -4,7 +4,7 @@ title: Custom Layout Rails Generator
 author: Denis Jacquemin
 published: true
 ---
-Rails generators helps accelerate your development time, by quickly generating redondant code between web app. The layout is a good example of stuff you do for every project, starting from scratch each time is boring and not productive.
+"Rails generators":http://guides.rubyonrails.org/generators.html helps accelerate your development time, by quickly generating redondant code between web app. The layout is a good example of stuff you do for every project, starting from scratch each time is boring and not productive.
 That's why I put my layout (application.rb, css, images) in a generator.
   
 h3. What it looks like
@@ -28,7 +28,7 @@ rails g custom_layout
 
 h3. Features
 
-* Includes Google Analytics code, don't forget to use your site's ID.
+* Includes "Google Analytics":http://www.google.com/analytics/ code, don't forget to use your site's ID.
 * Includes "html5shim":http://code.google.com/p/html5shim/ for enabling HTML5 tags in IExplorer prior to version 9.
 * Liquid layout with minimum width of 960px.
 * JavaScript placed at the end of the page, for loading time optimization.
