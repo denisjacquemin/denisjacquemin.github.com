@@ -22,7 +22,7 @@ gem "custom_layout", :group => :development
 
 Then you can run the generator.
 
-{% highlight rails %}
+{% highlight ruby %}
 rails g custom_layout
 {% endhighlight %}
 
