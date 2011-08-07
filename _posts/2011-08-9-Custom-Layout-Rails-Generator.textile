@@ -27,6 +27,7 @@ The page skeleton uses latest HTML5 goodies
 </body>
 {% endhighlight %}
 
+
 h3. Installation
 
 Rails 3
