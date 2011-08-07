@@ -23,10 +23,9 @@ The page skeleton uses latest HTML5 goodies
         <div id="maincol">...
         <div id="subcol">...
     </div>
-    <footer></footer    
+    <footer></footer>    
 </body>
 {% endhighlight %}
-
 
 h3. Installation
 
