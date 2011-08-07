@@ -9,7 +9,7 @@ published: true
 
 h3. The Problem
 
-For sure the application works perfectly on tomcat, but on WebSphere that's another story. 
+For sure the application works perfectly on "Tomcat":http://tomcat.apache.org/, but on WebSphere that's another story. 
 When importing the project into my "RAD":http://www-01.ibm.com/software/awdtools/developer/application/, I got the following error (see the full stack trace at the end of the post):
 
 {% highlight java %}
