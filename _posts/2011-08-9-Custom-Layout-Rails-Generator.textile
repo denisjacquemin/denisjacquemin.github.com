@@ -2,7 +2,7 @@
 layout: post
 title: Custom Layout Rails Generator 
 author: Denis Jacquemin
-published: true
+published: false
 ---
 Rails generators helps accelerate your development time, by quickly generating redondant code between web app. The layout is a good example of stuff you do for every project, starting from scratch each time is boring and not productive.
 That's why I put my layout (application.rb, css, images) in a generator.
