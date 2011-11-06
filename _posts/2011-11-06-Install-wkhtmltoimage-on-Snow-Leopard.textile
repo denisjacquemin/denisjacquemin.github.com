@@ -1,0 +1,16 @@
+---
+layout: post
+title: Install wkhtmltoimage on Snow Leopard
+author: Denis Jacquemin
+published: true
+---
+h3. What is wkhtmltoimage?
+
+wkhtmltoimage is a program capable of converting HTML documents into images, it's Written by Jan Habermann, Christian Sciberras and Jakob Truelsen.
+
+"The documentation can be found here":http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltoimage_0.10.0_rc2-doc.html
+
+h3. Manual Installation on Snow Leopard of wkhtmltoimage 0.10.0 rc2
+
+* curl http://wkhtmltopdf.googlecode.com/files/wkhtmltoimage-OSX-0.10.0_rc2-static.tar.bz2 | tar xvz
+* sudo mv wkhtmltoimage /usr/local/bin/wkhtmltoimage
